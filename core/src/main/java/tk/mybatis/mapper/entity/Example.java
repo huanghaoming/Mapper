@@ -440,7 +440,10 @@ public class Example implements IDynamicTableName {
         }
 
         public Criteria andNotIn(String property, Iterable values) {
-            addCriterion(column(property) + " not in", values, property(property));
+            if(values!=null){
+                addCriterion(column(property) + " not in", values, property(property));
+            }
+            
             return (Criteria) this;
         }
 
